@@ -23,4 +23,20 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public static $login_validation_rules = [
+      'email'=>'required|email',
+      'password'=>'required'
+    ];
+
+    public static $create_validation_rules = [
+      'name'=>'required|unique:users',
+      'email'=>'required|email|unique:users',
+      'password'=>'required'
+    ];
+
+    public function articles()
+    {
+      $this->hasMany('App\Article');
+    }
 }

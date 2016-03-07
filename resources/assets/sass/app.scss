@@ -1,2 +1,49 @@
-// @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+@import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
 
+body
+{
+  font-family: 'Open Sans', sans-serif;
+}
+
+nav.navbar-default
+{
+  background-color: #366e75;
+  .container
+  {
+    .navbar-header
+    {
+      a.navbar-brand
+      {
+        color:#ffffff;
+        font-size: 2em;
+      }
+    }
+    ul.navbar-nav
+    {
+      li
+      {
+        a
+        {
+          color:#ffffff;
+        }
+      }
+    }
+  }
+
+}
+
+.form-control
+{
+  border-radius: 0px;
+}
+.welcome
+{
+  background-color: #ffffff;
+  padding: 10rem;
+  letter-spacing: 1px;
+  font-size: 18px;
+  font-style: italic;
+  line-height: 2;
+  box-shadow: 0 0 3px 1px #e9e9e9;
+}
