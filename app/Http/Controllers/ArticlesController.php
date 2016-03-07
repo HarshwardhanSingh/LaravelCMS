@@ -66,7 +66,9 @@ class ArticlesController extends Controller
      */
     public function show($id)
     {
-        //
+        $article = Article::find($id)->firstOrFail();
+        // dd($article->created_at);
+        return view('articles.show',compact('article'));
     }
 
     /**
@@ -77,7 +79,8 @@ class ArticlesController extends Controller
      */
     public function edit($id)
     {
-        //
+      $article = Article::find($id)->firstOrFail();
+      return view('articles.edit',compact('article'));
     }
 
     /**
@@ -89,7 +92,16 @@ class ArticlesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request,Article::$update_validation_rules);
+        $data = $request->only('title','content','slug');
+        $article = Article::find($id)->firstOrFail();
+        if($article)
+        {
+          $article->update($data);
+          return redirect()->route('articles.show',$article->id);
+        }
+
+        return back()->withInput();
     }
 
     /**

@@ -17,6 +17,12 @@ class Article extends Model
     'slug'=>'required|unique:articles'
   ];
 
+  public static $update_validation_rules = [
+    'title'=>'required',
+    'content'=>'required',
+    'slug'=>'required'
+  ];
+
 
   public function user()
   {
