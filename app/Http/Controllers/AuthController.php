@@ -21,7 +21,7 @@ class AuthController extends Controller
     	$data = $request->only('email','password');
     	if(\Auth::attempt($data))
     	{
-    		return redirect()->intended('home');
+    		return redirect()->intended('/articles');
     	}
     	else
     	{
